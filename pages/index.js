@@ -5,7 +5,18 @@ import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 
-export const getStaticProps = async (ctx) => {
+// (Static Generation): Fetch data at build time
+// export const getStaticProps = async (ctx) => {
+//   const allPostsData = getSortedPostsData();
+//   return {
+//     props: {
+//       allPostsData,
+//     },
+//   };
+// };
+
+// (Server-side Rendering): Fetch data on each request.
+export const getServerSideProps = async (ctx) => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
