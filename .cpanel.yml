@@ -1,15 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/n1271022/public_html/
-    - export VERSION=v14.17.5
-    - export DISTRO=linux-x64
-    - /bin/wget https://nodejs.org/dist/latest-v14.x/node-$VERSION-$DISTRO.tar.gz
-    - /bin/mkdir -p /home/n1271022/var/nodejs
-    - /bin/tar -xJvf node-$VERSION-$DISTRO.tar.xz -C /home/n1271022/var/nodejs
-    - export PATH=/home/n1271022/var/nodejs/node-$VERSION-$DISTRO/bin:$PATH
-    - npm install -g yarn
-    - export DEPLOYPATH=/home/n1271022/public_html/
-    - yarn build_cpanel && yarn install --production --ignore-scripts --prefer-offline
+    - yarn install --production --ignore-scripts --prefer-offline && yarn build_cpanel
     - export NODE_ENV=production
-    - /bin/cp ./out/ /home/n1271022/var/nodejs/
+    - /bin/cp ./out/ /home/n1271022/public_html/
