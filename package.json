@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev -p 3003",
     "build": "next build",
-    "start": "next start -p 3003"
+    "start": "node server.js",
+    "export": "next export",
+    "build_cpanel": "yarn build && yarn export"
   },
   "dependencies": {
     "classnames": "^2.3.1",
