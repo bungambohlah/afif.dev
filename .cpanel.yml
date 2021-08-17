@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export NODE_ENV=production
-    - /bin/cp ./out/ /home/n1271022/public_html/
+    - /bin/cp -r ./out/. /home/n1271022/public_html/
