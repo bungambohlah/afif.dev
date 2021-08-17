@@ -4,4 +4,4 @@ deployment:
     - export NODE_ENV=production
     # - /bin/cp -r ./out/. /home/n1271022/public_html/
     - export PORT=80
-    - yarn start
+    - yarn start --max-old-space-size=256
