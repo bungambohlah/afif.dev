@@ -1,6 +1,7 @@
 ---
 deployment:
   tasks:
-    - yarn install --production --ignore-scripts --prefer-offline && yarn build_cpanel
+    - yarn install --production --ignore-scripts --prefer-offline
+    - yarn build_cpanel
     - export NODE_ENV=production
     - /bin/cp ./out/ /home/n1271022/public_html/
