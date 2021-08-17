@@ -3,4 +3,6 @@ deployment:
   tasks:
     - export NODE_ENV=production
     - export PORT=80
-    - yarn start --max-old-space-size=256
+    - export VERSION=v14.17.5
+    - export OSNODE=linux-x64
+    - /var/nodejs/node-$VERSION-$OSNODE/bin/yarn start --max-old-space-size=256
