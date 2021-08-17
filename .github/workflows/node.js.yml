@@ -28,3 +28,7 @@ jobs:
       - run: npm i -g yarn
       - run: yarn install --production --ignore-scripts --prefer-offline
       - run: yarn build_cpanel
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.11.0
+        with:
+          commit_message: Automated Change
