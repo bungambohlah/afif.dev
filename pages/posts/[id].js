@@ -4,6 +4,35 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import utilStyles from "../../styles/utils.module.css";
 
+// export const getStaticPaths = async () => {
+//   const paths = getAllPostIds();
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
+// (Static Generation): Fetch data at build time
+// export const getStaticProps = async ({ params }) => {
+//   const postData = await getPostData(params.id);
+//   return {
+//     props: {
+//       postData,
+//     },
+//   };
+// };
+
+// (Server-side Rendering): Fetch data on each request.
+export const getServerSideProps = async ({ params }) => {
+  const postData = await getPostData(params.id);
+  return {
+    props: {
+      postData,
+    },
+  };
+};
+
 export default function Post({ postData }) {
   return (
     <Layout>
@@ -20,21 +49,3 @@ export default function Post({ postData }) {
     </Layout>
   );
 }
-
-export const getStaticPaths = async () => {
-  const paths = getAllPostIds();
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id);
-  return {
-    props: {
-      postData,
-    },
-  };
-};
