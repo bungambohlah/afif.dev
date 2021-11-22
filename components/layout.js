@@ -8,7 +8,7 @@ export const siteTitle = 'Hello from Afif 👋🏼';
 
 const Layout = ({ children, home }) => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <link rel='icon' href='/favicon.ico' />
         <meta name='description' content='Mari belajar next.js website' />
@@ -59,7 +59,7 @@ const Layout = ({ children, home }) => {
           </>
         )}
       </header>
-      <main>{children}</main>
+      <main class='prose-xl'>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
           <Link href='/'>
