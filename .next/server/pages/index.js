@@ -5,7 +5,7 @@ exports.id = 405;
 exports.ids = [405];
 exports.modules = {
 
-/***/ 8869:
+/***/ 3207:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
   "default": () => (/* binding */ Home),
-  "getServerSideProps": () => (/* binding */ getServerSideProps)
+  "getStaticProps": () => (/* binding */ getStaticProps)
 });
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
@@ -94,6 +94,12 @@ function Icon({ name  }) {
     }));
 };
 
+// EXTERNAL MODULE: external "@chakra-ui/layout"
+var layout_ = __webpack_require__(1271);
+;// CONCATENATED MODULE: external "@chakra-ui/button"
+const button_namespaceObject = require("@chakra-ui/button");
+// EXTERNAL MODULE: external "@chakra-ui/media-query"
+var media_query_ = __webpack_require__(9850);
 ;// CONCATENATED MODULE: ./pages/index.js
 
 
@@ -102,17 +108,11 @@ function Icon({ name  }) {
 
 
 
+
+
+
 // (Static Generation): Fetch data at build time
-// export const getStaticProps = async (ctx) => {
-//   const allPostsData = getSortedPostsData();
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   };
-// };
-// (Server-side Rendering): Fetch data on each request.
-const getServerSideProps = async (ctx)=>{
+const getStaticProps = async (ctx)=>{
     const allPostsData = (0,posts/* getSortedPostsData */.ld)();
     return {
         props: {
@@ -121,7 +121,8 @@ const getServerSideProps = async (ctx)=>{
     };
 };
 function Home({ allPostsData  }) {
-    return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
+    return(/*#__PURE__*/ jsx_runtime_.jsx(layout_.Container, {
+        maxW: "container.sm",
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(layout/* default */.Z, {
             home: true,
             children: [
@@ -130,64 +131,66 @@ function Home({ allPostsData  }) {
                         children: layout/* siteTitle */.y
                     })
                 }),
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)("section", {
-                    className: "flex flex-col justify-start",
+                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(layout_.Flex, {
+                    direction: "column",
+                    justifyContent: "flex-start",
+                    alignItems: "center",
                     children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                            className: "prose lg:prose-xl dark:text-white",
+                        /*#__PURE__*/ jsx_runtime_.jsx(layout_.Text, {
+                            fontSize: "xl",
+                            pb: "4",
                             children: "Hello, my name is Afif, just call me Apep. My Professional skill are a Full-Stack developer and have a much year of experiences especially on Web Based Program."
                         }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("p", {
-                            className: "prose lg:prose-xl dark:text-white",
+                        /*#__PURE__*/ jsx_runtime_.jsx(layout_.Text, {
+                            fontSize: "xl",
+                            pb: "4",
                             children: "Contact me if you need anything on me, list on the below."
                         }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                            className: "mx-auto sm:my-auto",
-                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-                                className: "flex items-center justify-center space-x-3",
+                        /*#__PURE__*/ jsx_runtime_.jsx(layout_.Box, {
+                            mx: "auto",
+                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(layout_.Flex, {
+                                alignItems: "center",
+                                justifyContent: "center",
+                                wrap: "wrap",
                                 children: [
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
-                                        className: "bg-blue-500 hover:bg-blue-700 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded",
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(button_namespaceObject.Button, {
+                                        colorScheme: "facebook",
+                                        m: 3,
                                         children: [
                                             /*#__PURE__*/ jsx_runtime_.jsx(Icon, {
                                                 name: "facebook"
                                             }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                children: "Facebook"
-                                            })
+                                            "Facebook"
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
-                                        className: "bg-twitter hover:bg-twitter-hover px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded",
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(button_namespaceObject.Button, {
+                                        colorScheme: "twitter",
+                                        m: 3,
                                         children: [
                                             /*#__PURE__*/ jsx_runtime_.jsx(Icon, {
                                                 name: "twitter"
                                             }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                children: "Twitter"
-                                            })
+                                            "Twitter"
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
-                                        className: "bg-black bg-opacity-80 hover:bg-black px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded",
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(button_namespaceObject.Button, {
+                                        colorScheme: "github",
+                                        m: 3,
                                         children: [
                                             /*#__PURE__*/ jsx_runtime_.jsx(Icon, {
                                                 name: "github"
                                             }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                children: "Github"
-                                            })
+                                            "Github"
                                         ]
                                     }),
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)("button", {
-                                        className: "bg-linkedin hover:bg-linkedin-hover px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded",
+                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(button_namespaceObject.Button, {
+                                        colorScheme: "linkedin",
+                                        m: 3,
                                         children: [
                                             /*#__PURE__*/ jsx_runtime_.jsx(Icon, {
                                                 name: "linkedin"
                                             }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx("span", {
-                                                children: "LinkedIn"
-                                            })
+                                            "LinkedIn"
                                         ]
                                     })
                                 ]
@@ -197,21 +200,24 @@ function Home({ allPostsData  }) {
                 }),
                 /*#__PURE__*/ (0,jsx_runtime_.jsxs)("section", {
                     children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx("h2", {
-                            className: "prose lg:prose-xl dark:text-white font-semibold",
+                        /*#__PURE__*/ jsx_runtime_.jsx(layout_.Heading, {
+                            as: "h2",
+                            size: "lg",
+                            mb: 6,
                             children: "Blog"
                         }),
-                        /*#__PURE__*/ jsx_runtime_.jsx("ul", {
-                            className: "flex justify-start flex-col",
-                            children: allPostsData.map(({ id , date , title  })=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)("li", {
+                        /*#__PURE__*/ jsx_runtime_.jsx(layout_.List, {
+                            spacing: 3,
+                            children: allPostsData.map(({ id , date , title  })=>/*#__PURE__*/ (0,jsx_runtime_.jsxs)(layout_.ListItem, {
+                                    cursor: "pointer",
                                     children: [
                                         /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
                                             href: `/posts/${id}`,
-                                            children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx(layout_.Heading, {
+                                                as: "h3",
+                                                size: "md",
                                                 children: title
                                             })
-                                        }),
-                                        /*#__PURE__*/ jsx_runtime_.jsx("br", {
                                         }),
                                         /*#__PURE__*/ jsx_runtime_.jsx("small", {
                                             className: "prose lg:prose-xl dark:text-white font-light",
@@ -233,6 +239,27 @@ function Home({ allPostsData  }) {
 
 /***/ }),
 
+/***/ 1271:
+/***/ ((module) => {
+
+module.exports = require("@chakra-ui/layout");
+
+/***/ }),
+
+/***/ 9850:
+/***/ ((module) => {
+
+module.exports = require("@chakra-ui/media-query");
+
+/***/ }),
+
+/***/ 8930:
+/***/ ((module) => {
+
+module.exports = require("@chakra-ui/react");
+
+/***/ }),
+
 /***/ 8076:
 /***/ ((module) => {
 
@@ -251,20 +278,6 @@ module.exports = require("moment");
 /***/ ((module) => {
 
 module.exports = require("next/dist/server/denormalize-page-path.js");
-
-/***/ }),
-
-/***/ 8028:
-/***/ ((module) => {
-
-module.exports = require("next/dist/server/image-config.js");
-
-/***/ }),
-
-/***/ 4957:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/head.js");
 
 /***/ }),
 
@@ -345,13 +358,6 @@ module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 
 /***/ }),
 
-/***/ 3018:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/to-base-64.js");
-
-/***/ }),
-
 /***/ 9232:
 /***/ ((module) => {
 
@@ -415,7 +421,7 @@ module.exports = require("path");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,61,538], () => (__webpack_exec__(8869)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,538], () => (__webpack_exec__(3207)));
 module.exports = __webpack_exports__;
 
 })();

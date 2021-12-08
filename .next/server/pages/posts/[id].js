@@ -74,6 +74,27 @@ function Post({ postData  }) {
 
 /***/ }),
 
+/***/ 1271:
+/***/ ((module) => {
+
+module.exports = require("@chakra-ui/layout");
+
+/***/ }),
+
+/***/ 9850:
+/***/ ((module) => {
+
+module.exports = require("@chakra-ui/media-query");
+
+/***/ }),
+
+/***/ 8930:
+/***/ ((module) => {
+
+module.exports = require("@chakra-ui/react");
+
+/***/ }),
+
 /***/ 8076:
 /***/ ((module) => {
 
@@ -92,20 +113,6 @@ module.exports = require("moment");
 /***/ ((module) => {
 
 module.exports = require("next/dist/server/denormalize-page-path.js");
-
-/***/ }),
-
-/***/ 8028:
-/***/ ((module) => {
-
-module.exports = require("next/dist/server/image-config.js");
-
-/***/ }),
-
-/***/ 4957:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/head.js");
 
 /***/ }),
 
@@ -186,13 +193,6 @@ module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 
 /***/ }),
 
-/***/ 3018:
-/***/ ((module) => {
-
-module.exports = require("next/dist/shared/lib/to-base-64.js");
-
-/***/ }),
-
 /***/ 9232:
 /***/ ((module) => {
 
@@ -256,7 +256,7 @@ module.exports = require("path");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,61,538], () => (__webpack_exec__(9955)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,538], () => (__webpack_exec__(9955)));
 module.exports = __webpack_exports__;
 
 })();

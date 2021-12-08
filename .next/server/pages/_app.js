@@ -5,7 +5,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 380:
+/***/ 8813:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -18,52 +18,37 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
-;// CONCATENATED MODULE: external "next-themes"
-const external_next_themes_namespaceObject = require("next-themes");
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(6689);
-;// CONCATENATED MODULE: external "react-icons/hi"
-const hi_namespaceObject = require("react-icons/hi");
-;// CONCATENATED MODULE: ./components/ToggleMode.js
+// EXTERNAL MODULE: external "@chakra-ui/react"
+var react_ = __webpack_require__(8930);
+;// CONCATENATED MODULE: ./styles/theme.js
 
-
-
-
-function ToggleMode() {
-    const { 0: mounted , 1: setMounted  } = (0,external_react_.useState)(false);
-    const { theme , setTheme  } = (0,external_next_themes_namespaceObject.useTheme)();
-    // When mounted on client, now we can show the UI
-    (0,external_react_.useEffect)(()=>setMounted(true)
-    , []);
-    if (!mounted) return null;
-    return(/*#__PURE__*/ jsx_runtime_.jsx("div", {
-        className: "transition duration-500 ease-in-out rounded-full p-2",
-        children: theme === 'dark' ? /*#__PURE__*/ jsx_runtime_.jsx(hi_namespaceObject.HiSun, {
-            onClick: ()=>setTheme(theme === 'dark' ? 'light' : 'dark')
-            ,
-            className: "text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
-        }) : /*#__PURE__*/ jsx_runtime_.jsx(hi_namespaceObject.HiMoon, {
-            onClick: ()=>setTheme(theme === 'dark' ? 'light' : 'dark')
-            ,
-            className: "text-gray-500 dark:text-gray-400 text-2xl cursor-pointer"
-        })
-    }));
-};
+const theme = (0,react_.extendTheme)({
+    colors: {
+        github: {
+            50: "#f5f5f5",
+            100: "#ebebeb",
+            200: "#cccccc",
+            300: "#adadad",
+            400: "#707070",
+            500: "#333333",
+            600: "#2e2e2e",
+            700: "#262626",
+            800: "#1f1f1f",
+            900: "#191919"
+        }
+    }
+});
+/* harmony default export */ const styles_theme = (theme);
 
 ;// CONCATENATED MODULE: ./pages/_app.js
 
 
 
-
 const App = ({ Component , pageProps  })=>{
-    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(external_next_themes_namespaceObject.ThemeProvider, {
-        attribute: "class",
-        defaultTheme: "light",
+    return(/*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.ChakraProvider, {
+        theme: styles_theme,
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                className: "absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6",
-                children: /*#__PURE__*/ jsx_runtime_.jsx(ToggleMode, {
-                })
+            /*#__PURE__*/ jsx_runtime_.jsx(react_.CSSReset, {
             }),
             /*#__PURE__*/ jsx_runtime_.jsx(Component, {
                 ...pageProps
@@ -76,10 +61,10 @@ const App = ({ Component , pageProps  })=>{
 
 /***/ }),
 
-/***/ 6689:
+/***/ 8930:
 /***/ ((module) => {
 
-module.exports = require("react");
+module.exports = require("@chakra-ui/react");
 
 /***/ }),
 
@@ -97,7 +82,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(380));
+var __webpack_exports__ = (__webpack_exec__(8813));
 module.exports = __webpack_exports__;
 
 })();
