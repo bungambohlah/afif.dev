@@ -1,15 +1,12 @@
-import { ThemeProvider } from 'next-themes';
-import '../styles/global.css';
-import ToggleMode from '../components/ToggleMode';
+import { ChakraProvider, CSSReset } from "@chakra-ui/react";
+import theme from "../styles/theme";
 
 const App = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider attribute='class' defaultTheme='light'>
-      <div className='absolute right-0 top-0 mr-4 mt-4 md:mr-6 md:mt-6'>
-        <ToggleMode />
-      </div>
+    <ChakraProvider theme={theme}>
+      <CSSReset />
       <Component {...pageProps} />
-    </ThemeProvider>
+    </ChakraProvider>
   );
 };
 
