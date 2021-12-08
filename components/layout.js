@@ -1,71 +1,79 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from './layout.module.css';
-import Link from 'next/link';
+import Head from "next/head";
+import styles from "./layout.module.css";
+import Link from "next/link";
+import { Heading, Flex, Box } from "@chakra-ui/layout";
+import { Avatar } from "@chakra-ui/react";
+import { useBreakpointValue } from "@chakra-ui/media-query";
 
-const name = 'Afif Abdillah Jusuf';
-export const siteTitle = 'Hello from Afif 👋🏼';
+const name = "Afif Abdillah Jusuf";
+export const siteTitle = "Hello from Afif 👋🏼";
 
 const Layout = ({ children, home }) => {
   return (
     <div>
       <Head>
-        <link rel='icon' href='/favicon.ico' />
-        <meta name='description' content='Mari belajar next.js website' />
+        <link rel="icon" href="/favicon.ico" />
         <meta
-          name='og:image'
+          name="description"
+          content={`${name}'s Personal Website, hit the button if you like to visit me :)`}
+        />
+        <meta
+          name="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
             siteTitle
           )}.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-white-logo.svg`}
         />
-        <meta name='og:title' content={siteTitle} />
-        <meta name='twitter:card' content={'summary_large_image'} />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content={"summary_large_image"} />
       </Head>
       <header>
         {home ? (
-          <div className='flex flex-col justify-center items-center space-y-4'>
-            <div className='flex-1'>
-              <Image
-                priority
-                src='/images/profile.jpg'
-                height={144}
-                width={144}
-                alt={name}
-                className='rounded-full md:rounded-full'
-              />
-            </div>
-            <div className='flex-1'>
-              <h1 className='text-4xl sm:text-5xl font-bold'>{name}</h1>
-            </div>
-          </div>
+          <Flex
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            mt={16}
+          >
+            <Avatar size="2xl" src="/images/profile.jpg" name={name} />
+            <Heading
+              as="h1"
+              size={useBreakpointValue({
+                base: "xl",
+                xl: "2xl",
+              })}
+              my={4}
+              textAlign="center"
+            >
+              {name}
+            </Heading>
+          </Flex>
         ) : (
-          <>
-            <Link href='/'>
+          <Flex
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            my={16}
+          >
+            <Link href="/">
               <a>
-                <Image
-                  priority
-                  src='/images/profile.jpg'
-                  height={108}
-                  width={108}
-                  alt={name}
-                />
+                <Avatar size="2xl" src="/images/profile.jpg" name={name} />
               </a>
             </Link>
-            <h2 className='text-base md:text-lg font-bold'>
-              <Link href='/'>
+            <Heading as="h2" size="2xl" my={4}>
+              <Link href="/">
                 <a>{name}</a>
               </Link>
-            </h2>
-          </>
+            </Heading>
+          </Flex>
         )}
       </header>
-      <main class='prose-xl'>{children}</main>
+      <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
-          <Link href='/'>
+        <Box mt={12}>
+          <Link href="/">
             <a>← Back to home</a>
           </Link>
-        </div>
+        </Box>
       )}
     </div>
   );
