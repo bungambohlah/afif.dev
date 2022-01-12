@@ -5,7 +5,7 @@ exports.id = 646;
 exports.ids = [646];
 exports.modules = {
 
-/***/ 9955:
+/***/ 9604:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -16,18 +16,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2469);
-/* harmony import */ var _components_date__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3858);
-/* harmony import */ var _lib_posts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8904);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(968);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(968);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_date__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6054);
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2283);
+/* harmony import */ var _lib_posts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(381);
 
 
 
 
 
 const getStaticPaths = async ()=>{
-    const paths = (0,_lib_posts__WEBPACK_IMPORTED_MODULE_3__/* .getAllPostIds */ .Le)();
+    const paths = await (0,_lib_posts__WEBPACK_IMPORTED_MODULE_4__/* .getAllPostIds */ .Le)();
     return {
         paths,
         fallback: false
@@ -35,7 +35,7 @@ const getStaticPaths = async ()=>{
 };
 // (Static Generation): Fetch data at build time
 const getStaticProps = async ({ params  })=>{
-    const postData = await (0,_lib_posts__WEBPACK_IMPORTED_MODULE_3__/* .getPostData */ .AU)(params.id);
+    const postData = await (0,_lib_posts__WEBPACK_IMPORTED_MODULE_4__/* .getPostData */ .AU)(params.id);
     return {
         props: {
             postData
@@ -43,9 +43,9 @@ const getStaticProps = async ({ params  })=>{
     };
 };
 function Post({ postData  }) {
-    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_layout__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
+    return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_components_layout__WEBPACK_IMPORTED_MODULE_3__/* .Layout */ .A, {
         children: [
-            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_head__WEBPACK_IMPORTED_MODULE_4___default()), {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_head__WEBPACK_IMPORTED_MODULE_1___default()), {
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("title", {
                     children: postData.title
                 })
@@ -71,20 +71,6 @@ function Post({ postData  }) {
     }));
 };
 
-
-/***/ }),
-
-/***/ 1271:
-/***/ ((module) => {
-
-module.exports = require("@chakra-ui/layout");
-
-/***/ }),
-
-/***/ 9850:
-/***/ ((module) => {
-
-module.exports = require("@chakra-ui/media-query");
 
 /***/ }),
 
@@ -256,7 +242,7 @@ module.exports = require("path");
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,538], () => (__webpack_exec__(9955)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,365], () => (__webpack_exec__(9604)));
 module.exports = __webpack_exports__;
 
 })();

@@ -75,7 +75,6 @@ function Link(props) {
         props.as
     ]);
     let { children , replace , shallow , scroll , locale  } = props;
-    // Deprecated. Warning shown by propType check. If the children provided is a string (<Link>example</Link>) we wrap it in an <a> tag
     if (typeof children === 'string') {
         children = /*#__PURE__*/ _react.default.createElement("a", null, children);
     }
@@ -129,13 +128,14 @@ function Link(props) {
         }
     };
     childProps.onMouseEnter = (e)=>{
-        if (!(0, _router).isLocalURL(href)) return;
         if (child.props && typeof child.props.onMouseEnter === 'function') {
             child.props.onMouseEnter(e);
         }
-        prefetch(router, href, as, {
-            priority: true
-        });
+        if ((0, _router).isLocalURL(href)) {
+            prefetch(router, href, as, {
+                priority: true
+            });
+        }
     };
     // If child is an <a> tag and doesn't have a href attribute, or if the 'passHref' property is
     // defined, we specify the current 'href', so that repetition is not needed by the user
@@ -422,7 +422,9 @@ function createRouteLoader(assetPrefix) {
         },
         loadRoute (route, prefetch) {
             return withFuture(route, routes, ()=>{
-                const routeFilesPromise = getFilesForRoute(assetPrefix, route).then(({ scripts , css  })=>{
+                let devBuildPromiseResolve;
+                if (false) {}
+                return resolvePromiseWithTimeout(getFilesForRoute(assetPrefix, route).then(({ scripts , css  })=>{
                     return Promise.all([
                         entrypoints.has(route) ? [] : Promise.all(scripts.map(maybeExecuteScript)),
                         Promise.all(css.map(fetchStyleSheet)), 
@@ -433,9 +435,7 @@ function createRouteLoader(assetPrefix) {
                             styles: res[1]
                         })
                     );
-                });
-                if (false) {}
-                return resolvePromiseWithTimeout(routeFilesPromise, MS_MAX_IDLE_DELAY, markAssetError(new Error(`Route did not complete loading: ${route}`))).then(({ entrypoint , styles  })=>{
+                }), MS_MAX_IDLE_DELAY, markAssetError(new Error(`Route did not complete loading: ${route}`))).then(({ entrypoint , styles  })=>{
                     const res = Object.assign({
                         styles: styles
                     }, entrypoint);
@@ -448,6 +448,8 @@ function createRouteLoader(assetPrefix) {
                     return {
                         error: err
                     };
+                }).finally(()=>{
+                    return devBuildPromiseResolve === null || devBuildPromiseResolve === void 0 ? void 0 : devBuildPromiseResolve();
                 });
             });
         },
@@ -1280,32 +1282,38 @@ class Router {
             return false;
         }
         resolvedAs = delLocale(delBasePath(resolvedAs), this.locale);
-        const effect = await this._preflightRequest({
-            as: as3,
-            cache: "production" === 'production',
-            pages,
-            pathname,
-            query
-        });
-        if (effect.type === 'rewrite') {
-            query = {
-                ...query,
-                ...effect.parsedAs.query
-            };
-            resolvedAs = effect.asPath;
-            pathname = effect.resolvedHref;
-            parsed.pathname = effect.resolvedHref;
-            url2 = (0, _utils).formatWithValidation(parsed);
-        } else if (effect.type === 'redirect' && effect.newAs) {
-            return this.change(method, effect.newUrl, effect.newAs, options2);
-        } else if (effect.type === 'redirect' && effect.destination) {
-            window.location.href = effect.destination;
-            return new Promise(()=>{
+        /**
+     * If the route update was triggered for client-side hydration then
+     * do not check the preflight request. Otherwise when rendering
+     * a page with refresh it might get into an infinite loop.
+     */ if (options2._h !== 1) {
+            const effect = await this._preflightRequest({
+                as: as3,
+                cache: "production" === 'production',
+                pages,
+                pathname,
+                query
             });
-        } else if (effect.type === 'refresh') {
-            window.location.href = as3;
-            return new Promise(()=>{
-            });
+            if (effect.type === 'rewrite') {
+                query = {
+                    ...query,
+                    ...effect.parsedAs.query
+                };
+                resolvedAs = effect.asPath;
+                pathname = effect.resolvedHref;
+                parsed.pathname = effect.resolvedHref;
+                url2 = (0, _utils).formatWithValidation(parsed);
+            } else if (effect.type === 'redirect' && effect.newAs) {
+                return this.change(method, effect.newUrl, effect.newAs, options2);
+            } else if (effect.type === 'redirect' && effect.destination) {
+                window.location.href = effect.destination;
+                return new Promise(()=>{
+                });
+            } else if (effect.type === 'refresh') {
+                window.location.href = as3;
+                return new Promise(()=>{
+                });
+            }
         }
         const route = (0, _normalizeTrailingSlash).removePathTrailingSlash(pathname);
         if ((0, _isDynamic).isDynamicRoute(route)) {
