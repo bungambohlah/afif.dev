@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: 'npm'
       - run: npm i -g yarn
       - run: yarn install --production --ignore-scripts --prefer-offline
       # - run: yarn build_cpanel
