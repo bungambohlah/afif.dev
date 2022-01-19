@@ -1,1 +1,34 @@
-{"version":3,"routes":{"/":{"initialRevalidateSeconds":false,"srcRoute":null,"dataRoute":"/_next/data/H14-5tSDYkkcneH4aq72y/index.json"},"/posts/pre-rendering":{"initialRevalidateSeconds":false,"srcRoute":"/posts/[id]","dataRoute":"/_next/data/H14-5tSDYkkcneH4aq72y/posts/pre-rendering.json"},"/posts/ssg-ssr":{"initialRevalidateSeconds":false,"srcRoute":"/posts/[id]","dataRoute":"/_next/data/H14-5tSDYkkcneH4aq72y/posts/ssg-ssr.json"}},"dynamicRoutes":{"/posts/[id]":{"routeRegex":"^/posts/([^/]+?)(?:/)?$","dataRoute":"/_next/data/H14-5tSDYkkcneH4aq72y/posts/[id].json","fallback":false,"dataRouteRegex":"^/_next/data/H14\\-5tSDYkkcneH4aq72y/posts/([^/]+?)\\.json$"}},"notFoundRoutes":[],"preview":{"previewModeId":"143105e28249b97541c00bce85cedcbf","previewModeSigningKey":"636090128275db80a03340d5b9159ef7b20f517d9771c0c5ce48e1b29e9dcd29","previewModeEncryptionKey":"e406c68907d002b63240a63570647c4cec43e5f7dfbb3b640ca266fc1d4e715b"}}
+{
+  "version": 3,
+  "routes": {
+    "/": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/QcfCBjq2wEIJJBgpRirGz/index.json"
+    },
+    "/posts/pre-rendering": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/posts/[id]",
+      "dataRoute": "/_next/data/QcfCBjq2wEIJJBgpRirGz/posts/pre-rendering.json"
+    },
+    "/posts/ssg-ssr": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/posts/[id]",
+      "dataRoute": "/_next/data/QcfCBjq2wEIJJBgpRirGz/posts/ssg-ssr.json"
+    }
+  },
+  "dynamicRoutes": {
+    "/posts/[id]": {
+      "routeRegex": "^/posts/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/QcfCBjq2wEIJJBgpRirGz/posts/[id].json",
+      "fallback": false,
+      "dataRouteRegex": "^/_next/data/QcfCBjq2wEIJJBgpRirGz/posts/([^/]+?)\\.json$"
+    }
+  },
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "13790441ab547adbe23738c6a0a539f4",
+    "previewModeSigningKey": "143367724bd2cf486dd138f375491c19a2243712288bbb2b334f5090e2524dab",
+    "previewModeEncryptionKey": "769888f868dc7f02ee7ccd537dcf6d6246bac99a6813fb3e7e2f0ea42d1d5574"
+  }
+}
