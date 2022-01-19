@@ -1,20 +1,22 @@
+import { ArrowBackIcon } from '@chakra-ui/icons';
 import {
   Heading,
   Flex,
   Box,
   Avatar,
-  useBreakpointValue
-} from '@chakra-ui/react'
-import Link from 'next/link'
+  useBreakpointValue,
+  Button,
+} from '@chakra-ui/react';
+import Link from 'next/link';
 
-const name = 'Afif Abdillah Jusuf'
-export const siteTitle = 'Hello from Afif 👋🏼'
+const name = 'Afif Abdillah Jusuf';
+export const siteTitle = 'Hello from Afif 👋🏼';
 
 export function Layout({ children, home }) {
   const headingSize = useBreakpointValue({
     base: 'xl',
-    xl: '2xl'
-  })
+    xl: '2xl',
+  });
 
   return (
     <Box>
@@ -51,12 +53,17 @@ export function Layout({ children, home }) {
       </header>
       <main>{children}</main>
       {!home && (
-        <Box mt={12}>
-          <Link href='/'>
-            <a>← Back to home</a>
-          </Link>
+        <Box my={6}>
+          <Button
+            leftIcon={<ArrowBackIcon />}
+            colorScheme='gray'
+            variant='outline'>
+            <Link href='/'>
+              <a>Back to home</a>
+            </Link>
+          </Button>
         </Box>
       )}
     </Box>
-  )
+  );
 }

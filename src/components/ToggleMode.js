@@ -1,16 +1,16 @@
-import { useTheme } from 'next-themes'
-import React, { useEffect, useState } from 'react'
-import { HiMoon, HiSun } from 'react-icons/hi'
+import { useTheme } from 'next-themes';
+import React, { useEffect, useState } from 'react';
+import { HiMoon, HiSun } from 'react-icons/hi';
 
 export default function ToggleMode() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [])
+  useEffect(() => setMounted(true), []);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   return (
@@ -27,5 +27,5 @@ export default function ToggleMode() {
         />
       )}
     </div>
-  )
+  );
 }

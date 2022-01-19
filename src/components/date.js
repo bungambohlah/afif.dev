@@ -1,8 +1,8 @@
-import moment from 'moment'
+import moment from 'moment';
 
 export default function Date({ dateString }) {
-  const date = moment(dateString).toISOString()
+  const date = moment(dateString).toISOString();
   return (
     <time dateTime={dateString}>{moment(date).format('MMMM d, yyyy')}</time>
-  )
+  );
 }

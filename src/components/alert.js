@@ -1,17 +1,17 @@
-import cn from 'classnames'
+import cn from 'classnames';
 
-import styles from './alert.module.css'
+import styles from './alert.module.css';
 
 function Alert({ children, type }) {
   return (
     <div
       className={cn({
         [styles.success]: type === 'success',
-        [styles.error]: type === 'error'
+        [styles.error]: type === 'error',
       })}>
       {children}
     </div>
-  )
+  );
 }
 
-export default Alert
+export default Alert;
