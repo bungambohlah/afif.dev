@@ -25,10 +25,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm i -g yarn npm-run-all eslint eslint-config-airbnb-base eslint-config-galex eslint-config-next eslint-config-prettier eslint-plugin-import prettier
+      - run: npm i -g yarn
       - run: yarn install --production --ignore-scripts --prefer-offline
       # - run: yarn build_cpanel
-      - run: yarn validate:build
+      - run: yarn build
       - name: Git Auto Commit
         uses: stefanzweifel/git-auto-commit-action@v4.11.0
         with:
