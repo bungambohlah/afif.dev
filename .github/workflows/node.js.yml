@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm i -g yarn npm-run-all eslint prettier
+      - run: npm i -g yarn npm-run-all eslint eslint-config-airbnb-base eslint-config-galex eslint-config-next eslint-config-prettier eslint-plugin-import prettier
       - run: yarn install --production --ignore-scripts --prefer-offline
       # - run: yarn build_cpanel
       - run: yarn validate:build
