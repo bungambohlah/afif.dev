@@ -92,6 +92,14 @@ export default function Home({ allPostsData }) {
                   }>
                   <Icon name='linkedin' />
                 </Button>
+                <Button
+                  colorScheme='polywork'
+                  mx='1'
+                  onClick={() =>
+                    window.open('https://polywork.afif.dev/', '_target')
+                  }>
+                  <Icon name='polywork' />
+                </Button>
               </Flex>
             </Box>
           </Flex>
