@@ -11,6 +11,7 @@ import {
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import { Icon } from '../components/Icon';
 import LinkedinBadge from '../components/LinkedinBadge';
@@ -29,6 +30,21 @@ export const getStaticProps = async (ctx) => {
 };
 
 export default function Home({ allPostsData }) {
+  const [links] = useState({
+    cv_en: {
+      name: 'CV (English version)',
+      url: '/cv/CV Afif Abdillah Jusuf_en.pdf',
+    },
+    cv_id: {
+      name: 'CV (Indonesian version)',
+      url: '/cv/CV Afif Abdillah Jusuf_id.pdf',
+    },
+    resume: {
+      name: 'Resume',
+      url: '/resume/Resume Afif Abdillah Jusuf.pdf',
+    },
+  });
+
   return (
     <>
       <NextSeo title='Home' />
@@ -104,25 +120,24 @@ export default function Home({ allPostsData }) {
             </Box>
           </Flex>
 
-          {/* Blog */}
+          {/* CV & Resume */}
           <section style={{ padding: '24px 0' }}>
             <Heading as='h2' size='lg' mb={6}>
-              Blog
+              CV And Resume
             </Heading>
-            <List spacing={3}>
-              {allPostsData.map(({ id, date, title }) => (
-                <ListItem key={id} cursor='pointer'>
-                  <Link href={`/posts/${id}`} passHref>
-                    <Heading as='h3' size='md'>
-                      {title}
-                    </Heading>
-                  </Link>
-                  <Text fontSize='sm' my='1'>
-                    <Date dateString={date} />
-                  </Text>
-                </ListItem>
+            <Flex
+              direction='row'
+              justifyContent='flex-start'
+              alignItems='center'
+              spacing={3}>
+              {Object.keys(links).map((key) => (
+                <Link key={key} href={links[key].url} passHref>
+                  <Button colorScheme='messenger' mx='1'>
+                    <Text fontSize='sm'>{links[key].name}</Text>
+                  </Button>
+                </Link>
               ))}
-            </List>
+            </Flex>
           </section>
 
           {/* Portofolio */}
@@ -146,6 +161,27 @@ export default function Home({ allPostsData }) {
               theme='dark'
               vanity='afifjusuf'
             />
+          </section>
+
+          {/* Blog */}
+          <section style={{ padding: '24px 0' }}>
+            <Heading as='h2' size='lg' mb={6}>
+              Blog
+            </Heading>
+            <List spacing={3}>
+              {allPostsData.map(({ id, date, title }) => (
+                <ListItem key={id} cursor='pointer'>
+                  <Link href={`/posts/${id}`} passHref>
+                    <Heading as='h3' size='md'>
+                      {title}
+                    </Heading>
+                  </Link>
+                  <Text fontSize='sm' my='1'>
+                    <Date dateString={date} />
+                  </Text>
+                </ListItem>
+              ))}
+            </List>
           </section>
         </Layout>
       </Container>
