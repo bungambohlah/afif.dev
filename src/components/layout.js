@@ -28,7 +28,9 @@ export function Layout({ children, home }) {
             direction='column'
             justifyContent='center'
             alignItems='center'
-            mt={16}>
+            gap={4}
+            mt={16}
+            mb={8}>
             <Avatar size='2xl' src='/images/profile.jpg' name={name} />
             <Box
               display='flex'
