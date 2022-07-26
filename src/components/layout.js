@@ -6,6 +6,7 @@ import {
   Avatar,
   useBreakpointValue,
   Button,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 
@@ -14,9 +15,10 @@ export const siteTitle = 'Hello from Afif 👋🏼';
 
 export function Layout({ children, home }) {
   const headingSize = useBreakpointValue({
-    base: 'xl',
-    xl: '2xl',
+    base: 'lg',
+    md: 'xl',
   });
+  const background = useColorModeValue('gray.200', 'whiteAlpha.100');
 
   return (
     <Box>
@@ -28,9 +30,26 @@ export function Layout({ children, home }) {
             alignItems='center'
             mt={16}>
             <Avatar size='2xl' src='/images/profile.jpg' name={name} />
-            <Heading as='h1' size={headingSize} my={4} textAlign='center'>
-              {name}
-            </Heading>
+            <Box
+              display='flex'
+              backdropBlur='md'
+              borderColor='black'
+              background={background}
+              paddingY='2'
+              paddingX='4'
+              borderRadius='lg'
+              margin='auto'
+              justifyContent='center'
+              boxSizing='unset'>
+              <Heading
+                fontWeight={400}
+                as='h1'
+                size={headingSize}
+                alignItems='center'
+                fontFamily='mono'>
+                {name} <span> 👋</span>
+              </Heading>
+            </Box>
           </Flex>
         ) : (
           <Flex
@@ -43,7 +62,12 @@ export function Layout({ children, home }) {
                 <Avatar size='2xl' src='/images/profile.jpg' name={name} />
               </a>
             </Link>
-            <Heading as='h2' size='2xl' my={4}>
+            <Heading
+              as='h2'
+              size='2xl'
+              my={4}
+              alignItems='center'
+              fontFamily='mono'>
               <Link href='/'>
                 <a>{name}</a>
               </Link>
