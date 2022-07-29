@@ -7,9 +7,11 @@ This is a basic project for my personal site and with my portofolio included
 1. Next.js (Javascript & Typescript)
 2. Optimization SEO with next-seo
 3. Chakra UI
-4. pnpm
-5. ESlint & Prettier
-6. Husky & Commitizen with conventional message
+4. ESlint & Prettier
+5. Husky & Commitizen with conventional message + emoticon & Commitlint integrated
+6. Dark & Light mode
+7. Linkedin Badge
+8. Parsing Markdown with Remark
 
 ## Link
 
