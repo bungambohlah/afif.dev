@@ -47,14 +47,14 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
-    "@commitlint/config-conventional": "^15.0.0",
     "@types/node": "^18.0.0",
     "@types/react": "^17.0.37",
     "autoprefixer": "^10.4.0",
-    "commitizen": "^4.2.4",
+    "commitizen": "^4.2.5",
+    "commitlint-config-gitmoji": "^2.2.5",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
-    "cz-conventional-emoji": "^1.0.2",
+    "cz-customizable": "^6.9.1",
     "eslint": "^8.4.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-galex": "^3.3.6",
@@ -71,10 +71,5 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "yarn lint",
     "*.{js,jsx,ts,tsx,css,json,md}": "yarn format"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-emoji"
-    }
   }
 }
