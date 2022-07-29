@@ -10,8 +10,7 @@ This is a basic project for my personal site and with my portofolio included
 4. ESlint & Prettier
 5. Husky & Commitizen with conventional message + emoticon & Commitlint integrated
 6. Dark & Light mode
-7. Linkedin Badge
-8. Parsing Markdown with Remark
+7. Parsing Markdown with Remark
 
 ## Link
 
