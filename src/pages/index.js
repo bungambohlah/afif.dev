@@ -32,11 +32,11 @@ export const getStaticProps = async (ctx) => {
 export default function Home({ allPostsData }) {
   const [links] = useState({
     cv_en: {
-      name: 'CV (English version)',
+      name: 'CV (EN)',
       url: '/cv/CV Afif Abdillah Jusuf_en.pdf',
     },
     cv_id: {
-      name: 'CV (Indonesian version)',
+      name: 'CV (ID)',
       url: '/cv/CV Afif Abdillah Jusuf_id.pdf',
     },
     resume: {
