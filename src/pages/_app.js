@@ -1,6 +1,7 @@
 import ProgressBar from '@badrap/bar-of-progress';
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import { DefaultSeo } from 'next-seo';
+import Head from 'next/head';
 import Router from 'next/router';
 import { Fragment } from 'react';
 
@@ -39,6 +40,14 @@ function App({ Component, pageProps, router }) {
 
   return (
     <>
+      <Head>
+        <meta charset='UTF-8' />
+        <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0'
+        />
+      </Head>
       <DefaultSeo
         title={DEFAULT_TITLE}
         titleTemplate={DEFAULT_TITLE_TEMPLATE}
