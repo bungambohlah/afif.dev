@@ -1,5 +1,5 @@
 module.exports = {
-  reactStrct: true,
+  reactStrictMode: true,
   images: {
     loader: 'imgix',
     path: 'https://afifjusuf.id/',
