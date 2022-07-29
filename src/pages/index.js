@@ -14,7 +14,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import { Icon } from '../components/Icon';
-import LinkedinBadge from '../components/LinkedinBadge';
 import Date from '../components/date';
 import { siteTitle, Layout } from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
@@ -148,19 +147,6 @@ export default function Home({ allPostsData }) {
             <Text fontSize='sm' my='1'>
               Coming soon...
             </Text>
-          </section>
-
-          {/* Linkedin Badge */}
-          <section style={{ padding: '24px 0' }}>
-            <Heading as='h2' size='lg' mb={6}>
-              My Linkedin
-            </Heading>
-            <LinkedinBadge
-              size='large'
-              locale='en_US'
-              theme='dark'
-              vanity='afifjusuf'
-            />
           </section>
 
           {/* Blog */}
