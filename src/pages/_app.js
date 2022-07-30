@@ -1,13 +1,14 @@
 import ProgressBar from '@badrap/bar-of-progress';
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
 import Nav from 'components/Nav';
+import Transition from 'components/Transition';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import Router from 'next/router';
-import { Fragment } from 'react';
 
 import { SEO } from '../constants/seo-constant';
 import theme from '../styles/theme';
+import '../styles/transition.css';
 
 const progress = new ProgressBar({
   size: 2,
@@ -81,8 +82,10 @@ function App({ Component, pageProps, router }) {
       />
       <ChakraProvider theme={theme}>
         <Nav />
-        <CSSReset />
-        <Component {...pageProps} />
+        <Transition>
+          <CSSReset />
+          <Component {...pageProps} />
+        </Transition>
       </ChakraProvider>
     </>
   );
