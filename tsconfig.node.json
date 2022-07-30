@@ -10,5 +10,13 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
-  }
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+
+    // add all files in which you see
+    // the "parserOptions.project" error
+    ".eslintrc.js"
+  ]
 }
