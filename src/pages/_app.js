@@ -1,5 +1,6 @@
 import ProgressBar from '@badrap/bar-of-progress';
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
+import Nav from 'components/Nav';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import Router from 'next/router';
@@ -36,12 +37,11 @@ const {
 function App({ Component, pageProps, router }) {
   const canonicalPath = router.pathname === '/' ? '' : router.pathname;
   const url = `${DEFAULT_CANONICAL}${canonicalPath}`;
-  const Layout = Component.layoutProps?.Layout || Fragment;
 
   return (
     <>
       <Head>
-        <meta charset='UTF-8' />
+        <meta charSet='UTF-8' />
         <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
         <meta
           name='viewport'
@@ -80,10 +80,9 @@ function App({ Component, pageProps, router }) {
         ]}
       />
       <ChakraProvider theme={theme}>
+        <Nav />
         <CSSReset />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
       </ChakraProvider>
     </>
   );

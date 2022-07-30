@@ -14,8 +14,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import { Icon } from '../components/Icon';
+import { siteTitle, Layout } from '../components/Layout';
 import Date from '../components/date';
-import { siteTitle, Layout } from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 
 // (Static Generation): Fetch data at build time
@@ -174,7 +174,3 @@ export default function Home({ allPostsData }) {
     </>
   );
 }
-
-Home.layoutProps = {
-  Layout: (props) => <Box borderLeft={4} {...props} />,
-};
