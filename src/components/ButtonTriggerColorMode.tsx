@@ -12,7 +12,7 @@ export default function ButtonTriggerColorMode(
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
   return (
-    <ChakraFramerBox whileTap={{ scale: 0.5 }}>
+    <ChakraFramerBox aria-label={`${text} mode`} whileTap={{ scale: 0.5 }}>
       <IconButton
         size='md'
         fontSize='lg'

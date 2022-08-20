@@ -67,6 +67,7 @@ export default function Home({ allPostsData }) {
             <Box mx='auto'>
               <Flex alignItems='center' justifyContent='center' wrap='wrap'>
                 <Button
+                  aria-label='My Facebook'
                   colorScheme='facebook'
                   my='4'
                   mx='1'
@@ -79,6 +80,7 @@ export default function Home({ allPostsData }) {
                   <Icon name='facebook' />
                 </Button>
                 <Button
+                  aria-label='My Twitter'
                   colorScheme='twitter'
                   my='4'
                   mx='1'
@@ -88,6 +90,7 @@ export default function Home({ allPostsData }) {
                   <Icon name='twitter' />
                 </Button>
                 <Button
+                  aria-label='My Github'
                   colorScheme='github'
                   my='4'
                   mx='1'
@@ -97,6 +100,7 @@ export default function Home({ allPostsData }) {
                   <Icon name='github' />
                 </Button>
                 <Button
+                  aria-label='My Linkedin'
                   colorScheme='linkedin'
                   mx='1'
                   onClick={() =>
@@ -108,6 +112,7 @@ export default function Home({ allPostsData }) {
                   <Icon name='linkedin' />
                 </Button>
                 <Button
+                  aria-label='My Polywork'
                   colorScheme='polywork'
                   mx='1'
                   onClick={() =>
@@ -131,7 +136,10 @@ export default function Home({ allPostsData }) {
               spacing={3}>
               {Object.keys(links).map((key) => (
                 <Link key={key} href={links[key].url} passHref>
-                  <Button colorScheme='messenger' mx='1'>
+                  <Button
+                    aria-label={links[key].name}
+                    colorScheme='messenger'
+                    mx='1'>
                     <Text fontSize='sm'>{links[key].name}</Text>
                   </Button>
                 </Link>

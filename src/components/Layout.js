@@ -83,6 +83,7 @@ export function Layout({ children, home }) {
       {!home && (
         <Box my={6}>
           <Button
+            aria-label='Back to home'
             leftIcon={<ArrowBackIcon />}
             colorScheme='gray'
             variant='outline'>
