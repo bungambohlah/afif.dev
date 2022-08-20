@@ -8,6 +8,7 @@ import Router from 'next/router';
 
 import { SEO } from '../constants/seo-constant';
 import theme from '../styles/theme';
+import '../styles/global.css';
 import '../styles/transition.css';
 
 const progress = new ProgressBar({

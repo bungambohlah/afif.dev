@@ -8,6 +8,7 @@ import {
   ListItem,
   Button,
 } from '@chakra-ui/react';
+import BgAnimation from 'components/animation/BgAnimation';
 import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -46,6 +47,7 @@ export default function Home({ allPostsData }) {
 
   return (
     <>
+      <BgAnimation />
       <NextSeo title='Home' />
       <Container maxW='container.sm'>
         <Layout home>
