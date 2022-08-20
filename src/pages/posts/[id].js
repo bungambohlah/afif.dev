@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
 import { Container, Heading, Text } from '@chakra-ui/react';
+import { NextSeo } from 'next-seo';
 import Head from 'next/head';
 
 import { Layout } from '../../components/Layout';
@@ -27,19 +28,22 @@ export const getStaticProps = async ({ params }) => {
 
 export default function Post({ postData }) {
   return (
-    <Container maxW='container.sm'>
-      <Layout>
-        <Head>
-          <title>{postData.title}</title>
-        </Head>
-        <Heading as='h2' size='lg' my={1}>
-          {postData.title}
-        </Heading>
-        <Text fontSize='md' mb='4'>
-          <Date dateString={postData.date} />
-        </Text>
-        <article dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </Layout>
-    </Container>
+    <>
+      <NextSeo title={postData.title} />
+      <Container maxW='container.sm'>
+        <Layout>
+          <Head>
+            <title>{postData.title}</title>
+          </Head>
+          <Heading as='h2' size='lg' my={1}>
+            {postData.title}
+          </Heading>
+          <Text fontSize='md' mb='4'>
+            <Date dateString={postData.date} />
+          </Text>
+          <article dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </Layout>
+      </Container>
+    </>
   );
 }
