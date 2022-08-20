@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://afifjusuf.id",
+  "homepage": "https://afif.dev",
   "scripts": {
     "install:clean": "rm -rf node_modules && rm yarn.lock && yarn",
     "dev": "next dev",

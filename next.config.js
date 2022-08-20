@@ -2,7 +2,7 @@ module.exports = {
   reactStrictMode: true,
   images: {
     loader: 'imgix',
-    path: 'https://afifjusuf.id/',
+    path: 'https://afif.dev',
   },
   webpack: (config) => {
     config.resolve.fallback = {
