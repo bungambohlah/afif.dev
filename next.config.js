@@ -1,8 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    loader: 'imgix',
-    path: 'https://afif.dev',
+    formats: ['image/avif', 'image/webp'],
   },
   webpack: (config) => {
     config.resolve.fallback = {

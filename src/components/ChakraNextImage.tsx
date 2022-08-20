@@ -47,12 +47,6 @@ const ChakraNextImage = chakra(NextImage, {
     (FORWARDED_PROPS as readonly string[]).includes(prop),
 });
 
-const myLoader = (resolverProps: NextImageLoaderProps): string => {
-  return `${resolverProps.src}?w=${resolverProps.width}${
-    resolverProps.quality ? `&q=${resolverProps.quality}` : ''
-  }`;
-};
-
 const shimmer = (w: number, h: number) => `
 <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
@@ -91,13 +85,16 @@ export default function Image(props: ChakraNextImageProps): JSX.Element {
     }
   }
 
+  const widthImage = isResponsive(width) ? responsiveWidth ?? width : width;
+  const heightImage = isResponsive(height)
+    ? responsiveHeight ?? height
+    : height;
   return (
     <ChakraNextImage
       {...imageProps}
       {...boxProps}
-      width={isResponsive(width) ? responsiveWidth ?? width : width}
-      height={isResponsive(height) ? responsiveHeight ?? height : height}
-      loader={myLoader}
+      width={widthImage}
+      height={heightImage}
       placeholder='blur'
       blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
       transition='all 0.2s'

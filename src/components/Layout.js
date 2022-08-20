@@ -36,6 +36,7 @@ export function Layout({ children, home }) {
               width={[95, 100, 110, 130, 150]}
               height={[95, 100, 110, 130, 150]}
               src='/images/profile.png'
+              alt='Afif Abdillah Jusuf'
               borderRadius='50%'
               name={name}
             />
@@ -72,6 +73,7 @@ export function Layout({ children, home }) {
                   width={[105, 110, 115, 120, 130]}
                   height={[105, 110, 115, 120, 130]}
                   src='/images/profile.png'
+                  alt='Afif Abdillah Jusuf'
                   borderRadius='50%'
                   name={name}
                 />
