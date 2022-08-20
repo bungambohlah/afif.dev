@@ -14,7 +14,7 @@ const DEFAULT_DESCRIPTION =
   'My Personal Website, hit the button if you like to visit me.';
 const DEFAULT_CANONICAL = getURL();
 const SITE_NAME = 'Afif Abdillah Jusuf';
-const DEFAULT_OG_IMAGE = `${DEFAULT_CANONICAL}/profile.jpg`;
+const DEFAULT_OG_IMAGE = `${DEFAULT_CANONICAL}/profile.png`;
 const TWITTER_HANDLE = '@bungambohlah';
 const TWITTER_CARD_TYPE = 'summary_large_image';
 const FAVICON_LINK = '/favicon.ico';

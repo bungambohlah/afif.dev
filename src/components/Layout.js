@@ -3,14 +3,13 @@ import {
   Heading,
   Flex,
   Box,
-  Avatar,
   useBreakpointValue,
   Button,
   useColorModeValue,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 
-import Nav from './Nav';
+import ChakraNextImage from './ChakraNextImage';
 
 const name = 'Afif Abdillah Jusuf';
 export const siteTitle = 'Hello from Afif 👋🏼';
@@ -33,7 +32,13 @@ export function Layout({ children, home }) {
             gap={4}
             mt={16}
             mb={8}>
-            <Avatar size='2xl' src='/images/profile.jpg' name={name} />
+            <ChakraNextImage
+              width={[95, 100, 110, 130, 150]}
+              height={[95, 100, 110, 130, 150]}
+              src='/images/profile.png'
+              borderRadius='50%'
+              name={name}
+            />
             <Box
               display='flex'
               backdropBlur='md'
@@ -63,7 +68,13 @@ export function Layout({ children, home }) {
             my={16}>
             <Link href='/'>
               <a>
-                <Avatar size='2xl' src='/images/profile.jpg' name={name} />
+                <ChakraNextImage
+                  width={[105, 110, 115, 120, 130]}
+                  height={[105, 110, 115, 120, 130]}
+                  src='/images/profile.png'
+                  borderRadius='50%'
+                  name={name}
+                />
               </a>
             </Link>
             <Heading
