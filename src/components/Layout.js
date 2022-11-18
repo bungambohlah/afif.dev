@@ -94,17 +94,17 @@ export function Layout({ children, home }) {
       </header>
       <main>{children}</main>
       {!home && (
-        <Box my={6}>
-          <Button
-            aria-label='Back to home'
-            leftIcon={<ArrowBackIcon />}
-            colorScheme='gray'
-            variant='outline'>
-            <Link href='/'>
-              <a>Back to home</a>
-            </Link>
-          </Button>
-        </Box>
+        <Link href='/' passHref>
+          <Box my={6}>
+            <Button
+              aria-label='Back to home'
+              leftIcon={<ArrowBackIcon />}
+              colorScheme='gray'
+              variant='outline'>
+              Back to home
+            </Button>
+          </Box>
+        </Link>
       )}
     </Box>
   );
