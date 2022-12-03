@@ -18,7 +18,7 @@ module.exports = {
       },
     },
   ],
-  extends: 'galex',
+  extends: ['eslint:recommended', 'next/core-web-vitals', 'prettier'],
   rules: {
     'new-cap': 'off',
     'import/no-default-export': 'off',
