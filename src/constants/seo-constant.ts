@@ -1,6 +1,6 @@
-export const getURL = () => {
+export const getURL = (): string => {
   const url =
-    process.env && process.env.URL && process.env.URL !== ''
+    process.env?.URL && process.env.URL !== ''
       ? process.env.URL
       : process?.env?.VERCEL_URL && process.env.VERCEL_URL !== ''
       ? process.env.VERCEL_URL

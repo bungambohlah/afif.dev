@@ -6,9 +6,17 @@ import html from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'src/posts');
 
-export function getSortedPostsData() {
+export type PostData = {
+  id: string;
+  title?: string;
+  date?: string;
+  content?: string;
+  contentHtml?: string;
+};
+
+export async function getSortedPostsData(): Promise<PostData[]> {
   // Get file names under /posts
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = await fs.promises.readdir(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
     // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/u, '');
@@ -21,50 +29,53 @@ export function getSortedPostsData() {
     const matterResult = matter(fileContents);
 
     // Combine the data with the id
-    return {
+    const postData: PostData = {
       id,
+      title: matterResult.data.title as string,
+      date: matterResult.data.date as string,
       ...matterResult.data,
     };
+    return postData;
   });
+
   // Sort posts by date
-  return allPostsData.sort(({ date: a }, { date: b }) => {
-    if (a < b) {
-      return 1;
+  return allPostsData.sort((n1, n2) => {
+    if (n1.date && n2.date) {
+      if (n1.date > n2.date) {
+        return 1;
+      }
+
+      if (n1.date < n2.date) {
+        return -1;
+      }
     }
-    if (a > b) {
-      return -1;
-    }
+
     return 0;
   });
 }
 
-export function getAllPostIds() {
+type PostIds = Pick<PostData, 'id'>;
+export function getAllPostIds(): PostIds[] {
   const filenames = fs.readdirSync(postsDirectory);
 
   // return array like
   // [
   //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
+  //     id: 'ssg-ssr'
   //   }
   // ]
   //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
+  //     id: 'pre-rendering'
   //   }
   // ]
   return filenames.map((filename) => {
     return {
-      params: {
-        id: filename.replace(/\.md$/u, ''),
-      },
+      id: filename.replace(/\.md$/u, ''),
     };
   });
 }
 
-export async function getPostData(id) {
+export async function getPostData(id: string): Promise<PostData> {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 

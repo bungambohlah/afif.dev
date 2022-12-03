@@ -1,6 +1,9 @@
 import moment from 'moment';
 
-export default function Date({ dateString }) {
+type DateProps = {
+  dateString: string;
+};
+export default function Date({ dateString }: DateProps): JSX.Element {
   const date = moment(dateString).toISOString();
   return (
     <time dateTime={dateString}>{moment(date).format('MMMM d, yyyy')}</time>

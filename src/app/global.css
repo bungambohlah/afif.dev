@@ -141,3 +141,7 @@ html {
     border-radius: 50%;
   }
 }
+
+.pageTransitionEffect {
+  overflow: hidden;
+}

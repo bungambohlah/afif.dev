@@ -1,17 +1,12 @@
+import { chakra, Box } from '@chakra-ui/react';
 import type { ImageProps } from '@chakra-ui/react';
-import { chakra, Box, useBreakpointValue } from '@chakra-ui/react';
-import type {
-  ImageProps as NextImageProps,
-  ImageLoaderProps as NextImageLoaderProps,
-} from 'next/image';
 import NextImage from 'next/image';
+import type { ImageProps as NextImageProps } from 'next/image';
 
 // Properties which are forwarded to the underlying next/image component
 // NOTE: add in this list as you need to add properties to the underlying component
 // example: if you want to adjust the border radius then just add borderRadius's property
 const FORWARDED_PROPS = [
-  'width',
-  'height',
   'src',
   'alt',
   'quality',
@@ -69,8 +64,8 @@ const toBase64 = (str: string) =>
 export default function Image(props: ChakraNextImageProps): JSX.Element {
   const { width, height } = props;
 
-  const responsiveWidth = useBreakpointValue(getResponsive(width));
-  const responsiveHeight = useBreakpointValue(getResponsive(height));
+  const responsiveWidth = getResponsive(width);
+  const responsiveHeight = getResponsive(height);
 
   // Split properties to those for Box and for those which are forwarded
   const boxProps = { ...props };
@@ -90,15 +85,22 @@ export default function Image(props: ChakraNextImageProps): JSX.Element {
     ? responsiveHeight ?? height
     : height;
   return (
-    <ChakraNextImage
-      {...imageProps}
+    <Box
       {...boxProps}
-      width={widthImage}
-      height={heightImage}
-      placeholder='blur'
-      blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-      transition='all 0.2s'
-    />
+      w={widthImage}
+      h={heightImage}
+      position='relative'
+      overflow='hidden'
+      transition='all 0.2s'>
+      <NextImage
+        src={imageProps.src}
+        alt={imageProps.alt}
+        placeholder='blur'
+        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+        style={{ objectFit: 'cover' }}
+        fill
+      />
+    </Box>
   );
 }
 

@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import type { PropsWithChildren } from 'react';
 
 import ChakraFramerBox from './framermotion/ChakraFramerBox';
@@ -27,13 +27,13 @@ const variants = {
 export default function Transition({
   children,
 }: PropsWithChildren): JSX.Element {
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   return (
     <div className='pageTransitionEffect'>
       <AnimatePresence initial={false} exitBeforeEnter>
         <ChakraFramerBox
-          key={asPath}
+          key={pathname}
           variants={variants}
           animate='in'
           initial='out'

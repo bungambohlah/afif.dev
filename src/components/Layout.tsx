@@ -1,24 +1,30 @@
+'use client';
+
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import {
   Heading,
   Flex,
   Box,
-  useBreakpointValue,
   Button,
   useColorModeValue,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 
 import ChakraNextImage from './ChakraNextImage';
 
 const name = 'Afif Abdillah Jusuf';
 export const siteTitle = 'Hello from Afif 👋🏼';
 
-export function Layout({ children, home }) {
-  const headingSize = useBreakpointValue({
+type LayoutProps = {
+  children: ReactNode;
+  home?: boolean;
+};
+export function Layout({ children, home }: LayoutProps): JSX.Element {
+  const headingSize = {
     base: 'lg',
     md: 'xl',
-  });
+  };
   const background = useColorModeValue('gray.200', 'whiteAlpha.100');
 
   return (
@@ -33,12 +39,25 @@ export function Layout({ children, home }) {
             mt={16}
             mb={8}>
             <ChakraNextImage
-              width={[95, 100, 110, 130, 150]}
-              height={[95, 100, 110, 130, 150]}
+              width={{
+                base: 95,
+                sm: 95,
+                md: 100,
+                lg: 110,
+                xl: 130,
+                '2xl': 150,
+              }}
+              height={{
+                base: 95,
+                sm: 95,
+                md: 100,
+                lg: 110,
+                xl: 130,
+                '2xl': 150,
+              }}
               src='/images/profile.png'
-              alt='Afif Abdillah Jusuf'
+              alt={name}
               borderRadius='50%'
-              name={name}
             />
             <Box
               display='flex'
@@ -68,16 +87,27 @@ export function Layout({ children, home }) {
             alignItems='center'
             my={16}>
             <Link href='/'>
-              <a>
-                <ChakraNextImage
-                  width={[105, 110, 115, 120, 130]}
-                  height={[105, 110, 115, 120, 130]}
-                  src='/images/profile.png'
-                  alt='Afif Abdillah Jusuf'
-                  borderRadius='50%'
-                  name={name}
-                />
-              </a>
+              <ChakraNextImage
+                width={{
+                  base: 105,
+                  sm: 105,
+                  md: 110,
+                  lg: 115,
+                  xl: 120,
+                  '2xl': 130,
+                }}
+                height={{
+                  base: 105,
+                  sm: 105,
+                  md: 110,
+                  lg: 115,
+                  xl: 120,
+                  '2xl': 130,
+                }}
+                src='/images/profile.png'
+                alt={name}
+                borderRadius='50%'
+              />
             </Link>
             <Heading
               as='h2'
@@ -85,9 +115,7 @@ export function Layout({ children, home }) {
               my={4}
               alignItems='center'
               fontFamily='mono'>
-              <Link href='/'>
-                <a>{name}</a>
-              </Link>
+              <Link href='/'>{name}</Link>
             </Heading>
           </Flex>
         )}
