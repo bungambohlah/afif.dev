@@ -25,7 +25,7 @@ const {
 } = SEO;
 
 type IndexLayoutProps = {
-  children: JSX.Element;
+  children: React.ReactNode;
 };
 
 export default function RootLayout({
