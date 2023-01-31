@@ -68,7 +68,7 @@ export default function HomePage({
               my='4'
               mx='1'
               onClick={() =>
-                window.open('https://fb.me/rudrafentje.samasamagila', '_target')
+                window.open('https://fb.me/afifabdillahj', '_target')
               }>
               <Icon name='facebook' />
             </Button>
